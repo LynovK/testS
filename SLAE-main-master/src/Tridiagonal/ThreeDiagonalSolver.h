@@ -1,6 +1,3 @@
-//
-// Created by perseverance on 20.02.23.
-//
 
 #ifndef SLAE_THREEDIAGONALSOLVER_H
 #define SLAE_THREEDIAGONALSOLVER_H
