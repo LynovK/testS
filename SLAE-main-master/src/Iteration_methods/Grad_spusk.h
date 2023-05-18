@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 25.03.2023.
-//
-
 #ifndef SLAE_GRAD_SPUSK_H
 #define SLAE_GRAD_SPUSK_H
 
