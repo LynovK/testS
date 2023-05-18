@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 09.04.2023.
-//
-
 #ifndef SLAE_FIVE_DIAG_H
 #define SLAE_FIVE_DIAG_H
 
