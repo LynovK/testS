@@ -36,15 +36,15 @@ TEST(task_4, mpi_test) {
 
 TEST(task_4, SOR_test) {
     std::vector<element<double>> matrix_CSR = {
-            {0, 0, 10},
-            {0, 1, 2},
-            {0, 2, 1},
-            {1, 0, 2},
-            {1, 1, 10},
-            {1, 2, 3},
-            {2, 0, 1},
-            {2, 1, 3},
-            {2, 2, 10}
+            {6, 3, 10},
+            {5, 1, 2},
+            {2, 2, 1},
+            {1, 1, 2},
+            {2, 4, 10},
+            {4, 2, 3},
+            {2, 5, 1},
+            {7, 1, 3},
+            {2, 3, 10}
     };
     sort_me_plz(matrix_CSR);
     CompressedMatrix<double> res(matrix_CSR, 3, 3);
@@ -95,14 +95,14 @@ TEST(task_4, Gaus_Zeidel_firsttest) {
 
 TEST(task_4, Gaus_Zeidel_secondtest) {
     std::vector<element<double>> matrix_CSR = {
-            {0, 0, 10},
-            {0, 1, 2},
-            {0, 2, 1},
-            {1, 0, 2},
-            {1, 1, 10},
-            {1, 2, 3},
-            {2, 0, 1},
-            {2, 1, 3},
+            {3, 1, 10},
+            {3, 6, 2},
+            {0, 0, 1},
+            {8, 0, 2},
+            {4, 1, 10},
+            {3, 24, 3},
+            {2, 7, 1},
+            {2, 6, 3},
             {2, 2, 10}
     };
     sort_me_plz(matrix_CSR);
@@ -115,10 +115,8 @@ TEST(task_4, Gaus_Zeidel_secondtest) {
     double tolerance1 = 1e-10;
     double tolerance2 = 1e-10;
     std::vector<double> mpi = MPI(res, tolerance1, b, x0, tau);
-    //std::vector<double> gz = G_Z(res, tolerance2, b, x0);
     std::vector<double> gaus = G_Z(res, tolerance2, b, x0);
 
-    //std::vector<double> jac = Jacoby(res, tolerance2, b, x0);
     for (long i = 0; i < 3; i++) {
         ASSERT_NEAR(mpi[i], gaus[i], 1e-10);
     }
@@ -127,15 +125,15 @@ TEST(task_4, Gaus_Zeidel_secondtest) {
 
 TEST(sym_G_Z, symGZ_first) {
     std::vector<element<double>> matrix_CSR = {
-            {0, 0, 10},
-            {0, 1, 2},
-            {0, 2, 1},
-            {1, 0, 2},
-            {1, 1, 10},
-            {1, 2, 3},
-            {2, 0, 1},
-            {2, 1, 3},
-            {2, 2, 10}
+            {6, 5, 10},
+            {2, 1, 2},
+            {3, 2, 1},
+            {1, 7, 2},
+            {3, 3, 1},
+            {4, 4, 3},
+            {8, 0, 1},
+            {2, 2, 2},
+            {2, 2, 4}
     };
     sort_me_plz(matrix_CSR);
     CompressedMatrix<double> res = CompressedMatrix(matrix_CSR, 3, 3);
@@ -152,10 +150,6 @@ TEST(sym_G_Z, symGZ_first) {
     std::vector<double> sym_gaus = Symmentric_G_Z(res, tolerance2, b, x0);
     std::vector<double> jacoby = Jacoby(res, tolerance2, b, x0);
 
-    //std::vector<double> jac = Jacoby(res, tolerance2, b, x0);
-/*    for (long i = 0; i < 3; i++) {
-        ASSERT_NEAR(mpi[i], gaus[i], 1e-10);
-    }*/
     for (long i = 0; i < 3; i++) {
         ASSERT_NEAR(gaus[i], jacoby[i], 1e-10);
     }
