@@ -9,15 +9,15 @@
 
 TEST(task_4, mpi_test) {
     std::vector<element<double>> matrix_CSR = {
-            {0, 0, 12},
-            {0, 1, 17},
+            {6, 4, 11},
+            {2, 9, 13},
             {0, 2, 3},
-            {1, 0, 17},
-            {1, 1, 15825},
-            {1, 2, 28},
+            {13, 1, 1},
+            {10, 44, 2},
+            {5, 8, 28},
             {2, 0, 3},
-            {2, 1, 28},
-            {2, 2, 238}
+            {1, 2, 45},
+            {2, 2, 69}
     };
     sort_me_plz(matrix_CSR);
     CompressedMatrix<double> res(matrix_CSR, 3, 3);
@@ -66,15 +66,15 @@ TEST(task_4, SOR_test) {
 
 TEST(task_4, Gaus_Zeidel_firsttest) {
     std::vector<element<double>> matrix_CSR = {
-            {0, 0, 12},
-            {0, 1, 17},
-            {0, 2, 3},
-            {1, 0, 17},
-            {1, 1, 15825},
-            {1, 2, 28},
+            {4, 1, 12},
+            {1, 4, 17},
+            {8, 5, 3},
+            {14, 0, 17},
+            {5, 1, 13},
+            {5, 2, 28},
             {2, 0, 3},
-            {2, 1, 28},
-            {2, 2, 238}
+            {4, 1, 1},
+            {2, 6, 9}
     };
     sort_me_plz(matrix_CSR);
     CompressedMatrix<double> res = CompressedMatrix(matrix_CSR, 3, 3);
