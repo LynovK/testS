@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 14.02.23.
-//
-
 #ifndef SLAE_THREEDIAGONALMATRIX_H
 #define SLAE_THREEDIAGONALMATRIX_H
 
