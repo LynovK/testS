@@ -1,9 +1,5 @@
-//
-// Created by perseverance on 08.04.2023.
-//
-
-#ifndef SLAE_OPERATORS_H
-#define SLAE_OPERATORS_H
+#ifndef SLAE_VECANDMATR_H
+#define SLAE_VECANDMATR_H
 
 #include <iostream>
 #include <vector>
@@ -72,4 +68,4 @@ std::vector<T> vect_dot(const std::vector<T> &a, const std::vector<T> &b, const 
     return vect;
 }
 
-#endif //SLAE_OPERATORS_H
+#endif //SLAE_VECANDMATR_H
