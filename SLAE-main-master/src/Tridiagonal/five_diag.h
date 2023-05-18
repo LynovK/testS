@@ -4,13 +4,6 @@
 #include <iostream>
 #include <vector>
 
-/*template<typename T>
-struct element {
-    unsigned int i;
-    unsigned int j;
-    T v;
-};*/
-
 template<typename T>
 class five_diag {
     const T a, b;
