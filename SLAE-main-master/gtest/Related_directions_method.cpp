@@ -4,16 +4,16 @@
 
 TEST(Grad_napr, grad_napr_first){
     std::vector<element<double>> matrix_CSR = {
-            {0, 0, 1},
-            {1, 1, 2},
-            {2, 2, 3},
-            {3, 3, 4},
-            {4, 4, 5},
-            {5, 5, 6},
-            {6, 6, 7},
-            {7, 7, 8},
-            {8, 8, 9},
-            {9, 9, 10}
+            {0, 1, 2},
+            {1, 2, 3},
+            {2, 3, 4},
+            {3, 4, 5},
+            {4, 5, 6},
+            {5, 6, 7},
+            {6, 7, 8},
+            {7, 8, 9},
+            {8, 9, 10},
+            {9, 10, 11}
     };
     sort_me_plz(matrix_CSR);
     CompressedMatrix<double> res(matrix_CSR, 10, 10);
@@ -40,9 +40,6 @@ TEST(Grad_napr, grad_napr_first){
     std::vector<double> mpi = MPI(res, tolerance1, b, x0, tau_u);
     std::vector<double> Grad_napr = Related_directions(res, tolerance2, b, x0);
 
-/*    for(int i = 0; i < solve.size(); ++i){
-        ASSERT_NEAR(mpi[i], Grad_napr[i], 1e-12);
-    }*/ //макс точность 1e-12
 
     for(auto i = 0; i < solve.size(); ++i){
         ASSERT_NEAR(mpi_cheb[i], Grad_napr[i], 1e-15);
