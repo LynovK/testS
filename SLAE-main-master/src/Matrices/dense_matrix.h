@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 29.04.2023.
-//
-
 #ifndef SLAE_DENSE_MATRIX_H
 #define SLAE_DENSE_MATRIX_H
 
