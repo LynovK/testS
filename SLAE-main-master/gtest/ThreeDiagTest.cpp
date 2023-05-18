@@ -1,6 +1,3 @@
-//
-// Created by perseverance on 20.02.23.
-//
 #include <gtest/gtest.h>
 #include "../src/Tridiagonal/ThreeDiagonalSolver.h"
 
