@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 06.04.2023.
-//
-
 #include "../src/Iteration_methods/Grad_spusk.h"
 #include <gtest/gtest.h>
 
