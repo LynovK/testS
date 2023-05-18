@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 16.03.23.
-//
-
 #ifndef SLAE_CHEBISHEVMPI_H
 #define SLAE_CHEBISHEVMPI_H
 
