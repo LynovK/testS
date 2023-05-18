@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 05.03.23.
-//
-
 #pragma once
 #ifndef SLAE_ITERATION_METHODS_H
 #define SLAE_ITERATION_METHODS_H
@@ -38,14 +34,6 @@ std::vector<T> operator+(const std::vector<T> &a, const std::vector<T> &b) {
     return sum;
 }
 
-/*template<typename T>
-T get_r(const CompressedMatrix<T> &CSR, const std::vector<T> &x, const std::vector<T> &b) noexcept {
-    T r = 0;
-    for (size_t j = 0; j < b.size(); ++j) {
-        r += (b[j] - CSR.dot(x)[j]) * (b[j] - CSR.dot(x)[j]); //евклидова длина стобца невязки
-    }
-    return r;
-}*/
 
 template<typename T>
 T r_inf(const CompressedMatrix<double> &CSR, const std::vector<T> &x, const std::vector<T> &b) noexcept {
@@ -74,21 +62,6 @@ std::vector<T> MPI(CompressedMatrix<T> &CSR, const T tolerance, const std::vecto
     std::cout << "MPI count: " << count << std::endl;
     return x;
 }
-
-/*template<typename T>
-std::vector<T> Jacoby(CompressedMatrix<T> &CSR, const T tolerance, const std::vector<T> &b,
-                      const std::vector<T> &x0) {
-    std::vector<T> xk = x0, xt(x0.size(), 0);
-    unsigned long long count = 0;
-    while (tolerance < r_inf<T>(CSR, xk, b)) {
-        count++;
-        for (size_t k = 0; k < x0.size(); k++) {
-            xt[k] = (1 / CSR.element(k, k)) * (b[k] - CSR.dot(xk)[k] + CSR.element(k, k) * xk[k]);
-        }
-        xk = xt;
-    }
-    return xk;
-}*/
 
 template<typename T>
 std::vector<T>
