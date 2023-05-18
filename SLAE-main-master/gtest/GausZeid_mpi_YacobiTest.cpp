@@ -31,7 +31,6 @@ TEST(task_4, Gaus_Zeidel_firsttest) {
     double tolerance2 = 1e-15;
     std::vector<double> mpi = MPI(res, tolerance1, b, x0, tau);
     std::vector<double> gz = G_Z(res, tolerance2, b, x0);
-    //std::vector<double> jac = Jacoby(res, tolerance2, b, x0);
     for (long i = 0; i < 3; i++) {
         ASSERT_NEAR(mpi[i], gz[i], 1e-13);
     }
@@ -39,14 +38,14 @@ TEST(task_4, Gaus_Zeidel_firsttest) {
 
 TEST(task_4, Gaus_Zeidel_secondtest) {
     std::vector<element<double>> matrix_CSR = {
-            {0, 0, 10},
-            {0, 1, 2},
-            {0, 2, 1},
-            {1, 0, 2},
-            {1, 1, 10},
+            {1, 0, 10},
+            {2, 1, 2},
+            {0, 4, 1},
+            {1, 6, 3},
+            {5, 1, 10},
             {1, 2, 3},
-            {2, 0, 1},
-            {2, 1, 3},
+            {2, 8, 1},
+            {8, 2, 3},
             {2, 2, 10}
     };
     sort_me_plz(matrix_CSR);
@@ -59,10 +58,8 @@ TEST(task_4, Gaus_Zeidel_secondtest) {
     double tolerance1 = 1e-10;
     double tolerance2 = 1e-10;
     std::vector<double> mpi = MPI(res, tolerance1, b, x0, tau);
-    //std::vector<double> gz = G_Z(res, tolerance2, b, x0);
     std::vector<double> gaus = G_Z(res, tolerance2, b, x0);
 
-    //std::vector<double> jac = Jacoby(res, tolerance2, b, x0);
     for (long i = 0; i < 3; i++) {
         ASSERT_NEAR(mpi[i], gaus[i], 1e-10);
     }
@@ -72,15 +69,15 @@ TEST(task_4, Gaus_Zeidel_secondtest) {
 
 TEST(sym_G_Z, symGZfirst) {
     std::vector<element<double>> matrix_CSR = {
-            {0, 0, 10},
-            {0, 1, 2},
-            {0, 2, 1},
-            {1, 0, 2},
-            {1, 1, 10},
+            {3, 0, 10},
+            {6, 1, 2},
+            {0, 5, 1},
+            {1, 5, 4},
+            {3, 4, 2},
             {1, 2, 3},
-            {2, 0, 1},
-            {2, 1, 3},
-            {2, 2, 10}
+            {6, 0, 1},
+            {5, 1, 3},
+            {4, 2, 10}
     };
     sort_me_plz(matrix_CSR);
     CompressedMatrix<double> res = CompressedMatrix(matrix_CSR, 3, 3);
@@ -92,15 +89,11 @@ TEST(sym_G_Z, symGZfirst) {
     double tolerance1 = 1e-10;
     double tolerance2 = 1e-10;
     std::vector<double> mpi = MPI(res, tolerance1, b, x0, tau);
-    //std::vector<double> gz = G_Z(res, tolerance2, b, x0);
     std::vector<double> gaus = G_Z(res, tolerance2, b, x0);
     std::vector<double> sym_gaus = Symmentric_G_Z(res, tolerance2, b, x0);
     std::vector<double> jacoby = Jacoby(res, tolerance2, b, x0);
 
-    //std::vector<double> jac = Jacoby(res, tolerance2, b, x0);
-/*    for (long i = 0; i < 3; i++) {
-        ASSERT_NEAR(mpi[i], gaus[i], 1e-10);
-    }*/
+
     for (long i = 0; i < 3; i++) {
         ASSERT_NEAR(gaus[i], jacoby[i], 1e-10);
     }
