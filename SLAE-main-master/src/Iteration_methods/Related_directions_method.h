@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 06.04.2023.
-//
-
 #ifndef SLAE_RELATED_DIRECTIONS_METHOD_H
 #define SLAE_RELATED_DIRECTIONS_METHOD_H
 
