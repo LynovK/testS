@@ -7,7 +7,6 @@
 #include <vector>
 #include <algorithm>
 
-
 template<typename T>
 class Matrix{
 private:
