@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 08.04.2023.
-//
-
 #ifndef SLAE_VECTOR_H
 #define SLAE_VECTOR_H
 
