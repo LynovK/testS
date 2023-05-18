@@ -1,9 +1,5 @@
-//
-// Created by perseverance on 06.04.2023.
-//
-
-#ifndef SLAE_SYMMETRIC_G_Z_H
-#define SLAE_SYMMETRIC_G_Z_H
+#ifndef SLAE_SYMGZH
+#define SLAE_SYMGZH
 
 #include "Iteration_methods.h"
 
@@ -43,4 +39,4 @@ Symmentric_G_Z(const CompressedMatrix<T> &CSR, const T tolerance, const std::vec
     return x_0;
 }
 
-#endif //SLAE_SYMMETRIC_G_Z_H
+#endif //SLAE_SYMGZH
