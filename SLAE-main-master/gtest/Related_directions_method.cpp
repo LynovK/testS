@@ -1,7 +1,3 @@
-//
-// Created by perseverance on 06.04.2023.
-//
-
 #include <gtest/gtest.h>
 #include "../src/Iteration_methods/Related_directions_method.h"
 #include "../src/Iteration_methods/ChebishevMPI.h"
